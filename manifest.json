@@ -1,0 +1,28 @@
+{
+  "name" : "豆瓣个人搜索",
+  "manifest_version": 2,
+  "version" : "0.1",
+  "description" : "豆瓣个人搜索",
+  "icons": { "16": "neko.png",
+              "48": "neko.png",
+              "128": "neko.png" },
+  "content_scripts" : [
+    {
+      "matches" : [
+        "https://www.douban.com/"
+      ],
+      "js" : ["jquery.min.js",
+              "elasticlunr.min.js",
+              "index.js"
+              ],
+      "run_at" : "document_end",
+      "all_frames" : false
+    }
+  ],
+    "permissions": [
+        "tabs",
+        "background",
+        "unlimitedStorage",
+        "https://www.douban.com/*"
+    ]
+}
