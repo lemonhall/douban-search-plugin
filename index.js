@@ -1,8 +1,10 @@
 console.log("Hello from search");
 
 var index = elasticlunr(function () {
-    this.addField('id')
-    this.addField('body')
+	this.use(elasticlunr.multiLanguage("en","cn"));
+    this.addField('id');
+    this.addField('body');
+    this.setRef('id');
 });
 
 //解析单条的广播
@@ -28,24 +30,6 @@ var item_parser  = function(item){
 	return doc;
 };//END of item_parser
 
-var tokenizer = function(text){
-	$.ajax({
-  		type: 'POST',
-  		headers: {
-  					"Content-Type"	:"application/json",
-  				  	"Accept"		: "application/json",
-  				  	"X-Token"		: "K7xvHHi6.10952.-bhayQSR3vmU"
-  				},
-  		url: "https://api.bosonnlp.com/tag/analysis?space_mode=0&oov_level=3&t2s=0",
-  		data: "人民法院案件受理制度改革  下月起法院将有案必立",
-  		success: function(result){
-  			console.log(result);
-  		}
-	});
-};
-
-tokenizer();
-
 $.get("https://www.douban.com/people/104099602/statuses?p=1", function(result){
     //console.log(result);
     //获取每一条广播流
@@ -61,6 +45,7 @@ $.get("https://www.douban.com/people/104099602/statuses?p=1", function(result){
     });
     //END of 遍历每一条广播 
     var result = index.search("redis");
+    //console.log(index);
 	console.log(result);   
 });
 

@@ -13,6 +13,9 @@
       ],
       "js" : ["jquery.min.js",
               "elasticlunr.min.js",
+              "lunr.stemmer.support.js",
+              "lunr.cn.js",
+              "lunr.multi.js",
               "index.js"
               ],
       "run_at" : "document_end",
@@ -23,7 +26,6 @@
         "tabs",
         "background",
         "unlimitedStorage",
-        "https://www.douban.com/*",
-        "https://api.bosonnlp.com/*"
+        "https://www.douban.com/*"
     ]
 }
