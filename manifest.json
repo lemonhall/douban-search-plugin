@@ -23,6 +23,7 @@
         "tabs",
         "background",
         "unlimitedStorage",
-        "https://www.douban.com/*"
+        "https://www.douban.com/*",
+        "https://api.bosonnlp.com/*"
     ]
 }
